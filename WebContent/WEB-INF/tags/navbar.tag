@@ -45,6 +45,9 @@
       <li class="nav-item">
           <a href="${root }/removeMember.do" class="nav-link">탈퇴</a>
         </li>
+    	 <li class="nav-item">
+          <a href="${root }/statusMember.jsp" class="nav-link">마이페이지</a>
+        </li>
     </ul>
     </u:isLogin>
   </div>

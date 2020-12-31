@@ -41,50 +41,49 @@ public class DeleteArticleHandler implements CommandHandler {
 		// 삭제하려는 게시물의 작성자
 		HttpSession session = req.getSession();
 		User authUser = (User) session.getAttribute("authUser");
-		
 		int no = Integer.parseInt(req.getParameter("no"));
-		String password = req.getParameter("password");
 		
-		
-		
-		ArticleData articleData = readService.getArticle(no, false);
-		
-		// 가 같으면 삭제함
-		//    암호가 일치하는 지 확인 해서
-		//           일치하면 삭제
-		//           아니면 throw exception
-		
-		// 안 같으면 throw exception
-		if (!authUser.getId().equals(articleData.getArticle().getWriter().getId())) {
-			res.sendError(HttpServletResponse.SC_FORBIDDEN);
-			return null;
-		}
-		try {
-			deleteArticleService.delete(no, authUser, password);
+		if (authUser.getId().startsWith("extra")) {
+			deleteArticleService.delete(no, authUser);
 			
-		} catch (PermissionDeniedException e) {
-			errors.put("invalidePassword", true);
-			return FORM_VIEW;
-		}	catch (Exception e) {
-			throw new RuntimeException(e);
+		} else {
+			
+			String password = req.getParameter("password");
+			
+			
+			
+			ArticleData articleData = readService.getArticle(no, false);
+			
+			// 가 같으면 삭제함
+			//    암호가 일치하는 지 확인 해서
+			//           일치하면 삭제
+			//           아니면 throw exception
+			
+			// 안 같으면 throw exception
+			if (!authUser.getId().equals(articleData.getArticle().getWriter().getId())) {
+				res.sendError(HttpServletResponse.SC_FORBIDDEN);
+				return null;
+			}
+			try {
+				deleteArticleService.delete(no, authUser, password);
+				
+				
+			} catch (PermissionDeniedException e) {
+				errors.put("invalidePassword", true);
+				return FORM_VIEW;
+			}	catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+		
 		}
-		
-		
 		
 		return "deleteArticleSuccess";
+		
+		
 	}
 
 	private String processForm(HttpServletRequest req, HttpServletResponse res) {
-		HttpSession session =req.getSession();
-		User user = (User) session.getAttribute("authUser");
-		String noVal = req.getParameter("no");
-		if(user.getId() == (user.getName())) {
-			
-			int no = Integer.parseInt(noVal);
-			deleteArticleService.delete2(no, user);
-			return "aaa";
-		}
-		return FORM_VIEW;
+			return FORM_VIEW;
 	}
 }
 

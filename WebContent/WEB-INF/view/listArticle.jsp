@@ -82,10 +82,6 @@
 						</c:if></td>
 				</tr>
 			</c:if>
-			<tr>
-				<td colspan="4"><input type="submit" value="원하는 게시글 삭제" /> 
-				<a	href="${root}/article/DeleteList.jsp"></a></td>
-			</tr>
 		</table>
 	</div>
 </body>

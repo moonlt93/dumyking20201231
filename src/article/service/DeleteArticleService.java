@@ -22,38 +22,34 @@ public class DeleteArticleService {
 		try {
 			con.setAutoCommit(false);
 			Member member = memberDao.selectById(con, authUser.getId());
-			
+
 			// 같지 않으면 throw exception
 			if (!member.getPassword().equals(password)) {
 				throw new PermissionDeniedException();
 			}
-			
+
 			// password와 사용자의 비번이 같으면
-			//   articleDao.delete, articleContentDao.delete
+			// articleDao.delete, articleContentDao.delete
 			articleDao.delete(con, no);
 			articleContentDao.delete(con, no);
 			con.commit();
 		} catch (SQLException e) {
 			JdbcUtil.rollback(con);
 			throw new RuntimeException(e);
-			}
 		}
-		
-		public void delete2(int no, User user) {
-
-			Connection con = ConnectionProvider.getConnection();
-			try {
-				con.setAutoCommit(false);
-				
-				articleDao.delete1(con, no, user);
-				articleContentDao.delete1(con, no, user);
-				con.commit();
-			} catch (SQLException e) {
-				JdbcUtil.rollback(con);
-				throw new RuntimeException(e);
-			}
-			
-		
 	}
-	
+
+	public void delete(int no, User authUser) {
+		Connection con = ConnectionProvider.getConnection();
+		try {
+			con.setAutoCommit(false);
+			articleDao.delete(con, no);
+			articleContentDao.delete(con, no);
+			con.commit();
+		} catch (SQLException e) {
+			JdbcUtil.rollback(con);
+			throw new RuntimeException(e);
+		}
+	}
+
 }

@@ -245,17 +245,7 @@ public class ArticleDao {
 		}
 	}
 
-	public void delete1(Connection con, int no, User user) throws SQLException{
-		String sql = "DELETE article "
-				   + "WHERE article_no=? "
-				   + "AND writer_id=?";
-		try (PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setInt(1, no);
-			pstmt.setString(2, user.getId());
-			
-			pstmt.executeUpdate();
-		}
-	}
+
 		
 }
 
