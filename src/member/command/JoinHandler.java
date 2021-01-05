@@ -55,7 +55,7 @@ public class JoinHandler implements CommandHandler {
 		joinReq.setGender(req.getParameter("gender")); 
 		joinReq.setJob(req.getParameter("job"));
 		
-		System.out.println(joinReq.getBirth());
+		
 		Map<String, Boolean> errors = new HashMap<>(); // errors 객체 생성
 		req.setAttribute("errors", errors); //errors라는 이름으로 request에 객체 저장.
 		

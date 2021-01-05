@@ -4,7 +4,7 @@
 
 <div class="container mb-3">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="${root }/index.jsp">중앙프로젝트</a>
+  <a class="navbar-brand" href="${root }/index.jsp">TSOA CATS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

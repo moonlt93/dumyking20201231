@@ -19,14 +19,13 @@
 </head>
 <body>
 	<u:navbar />
-<%-- 	<!-- .container>.row>.col-3+.col-6>h1+form -->
+	<!-- .container>.row>.col-3+.col-6>h1+form -->
 	<div class="container">
 		<div class="row">
 			<div class="col-3"></div>
 			<div class="col-6">
 				<h1>로그인</h1>
 				<form action="${root }/login.do" method="post">
-				
 					<!-- post방식으로 경로를 통해 요청 전송.-->
 					<!-- div.form-group*2>label+input.form-control -->
 					<div class="form-group">
@@ -40,24 +39,26 @@
 						</c:if>
 					</div>
 					<div class="form-group">
-						<label for="input2-password">패스워드</label> 
+						<label for="input2-password">패스워드</label>
 						<!-- input2 입력할거 두번째  -->
-						<input
-							id="input2-password" type="password" name="password"
+						<input id="input2-password" type="password" name="password"
 							class="form-control" />
-							
-					
-						<c:if test="${errors.password }">
-							<small class="form-text text-muted"> 암호를 입력하세요. </small>
-						</c:if>
-
-						<button type="submit" class="btn btn-primary">로그인</button>
+					<c:if test="${errors.password }">
+						<small class="form-text text-muted"> 암호를 입력하세요. </small>
+					</c:if>
+					</div>
+					<button type="submit" class="btn btn-primary">로그인</button>
 				</form>
+				<div class="form-group">
+				<form action="${root }/extra.do" method="post">
+				<input type="submit" class="btn btn-dark" value="Guest Login" />
+			</form>
+		</div>
 			</div>
 		</div>
 	</div>
- --%>
- <div class="container">
+
+	<%--  <div class="container">
     <h1>로그인</h1>
     <form action="login.do" method="post">
     <!--아이디 paragraph는 text타입 id 이름을가진 param request id를 보냄  -->
@@ -82,7 +83,7 @@
 			</form>
 		</div>
 	</div>
+	--%>
 </body>
 </html>
-
 

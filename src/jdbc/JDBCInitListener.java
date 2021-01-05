@@ -50,8 +50,6 @@ public class JDBCInitListener implements ServletContextListener {
 			e.printStackTrace();
 		}
 
-		// 2. drivermanager에서 connection
-		// 3. close();
 		try (Connection con = DriverManager.getConnection(url, user, pw);) {
 			System.out.println("연결 잘 됨");
 		} catch (Exception e) {
@@ -65,8 +63,7 @@ public class JDBCInitListener implements ServletContextListener {
 		// context root 경로
 		String contextPath = application.getContextPath();
 		application.setAttribute("root", contextPath);
-		
-		
+
 	}
 
 }

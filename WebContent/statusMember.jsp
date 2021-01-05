@@ -20,7 +20,7 @@
 <div class="container">
 	<form action="${root }/index.jsp" method="post">
 		<u:navbar />
-			<ul class="info">
+			<ul class="info-hover">
 			<li class="list-group-item">아이디:${sessionScope.authUser.id }</li>
 			<li class="list-group-item">이름:${sessionScope.authUser.name }</li>
 			<li class="list-group-item">생일:${sessionScope.authUser.birth }</li>

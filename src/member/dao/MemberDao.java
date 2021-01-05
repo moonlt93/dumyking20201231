@@ -11,9 +11,7 @@ import member.model.Member;
 
 public class MemberDao {
 	
-	
 
-	
 	
 	public void delete(Connection conn, String id) throws SQLException {
 		// 삭제 쿼리 실행
@@ -50,7 +48,7 @@ public class MemberDao {
 		
 		Member member = null;
 		
-		String sql = "SELECT memberid, name, password, regdate ,Birth,Gender,Job "
+		String sql = " SELECT memberid, name, password, regdate ,Birth,Gender,Job "
 				+ "FROM member "
 				+ "WHERE memberid=?";
 		
@@ -60,7 +58,7 @@ public class MemberDao {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
-			
+			System.out.println(id);
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
@@ -87,12 +85,13 @@ public class MemberDao {
 
 	public void insert(Connection con, Member member) throws SQLException {
 		String sql = "INSERT INTO member "
-				+ "(memberid, name, password, regdate, birth,gender,job) "
-				+ "VALUES (?, ?, ?, SYSDATE,to_date(?,'yyyy-mm-dd'),?,?) ";//이거 물어보기
+				+ "(memberid, name, password, regdate,birth,gender,job) "
+				+ "VALUES (?, ?, ?, SYSDATE,to_date(?,'yyyy-mm-dd'),?,?) ";
 		
 		PreparedStatement pstmt = null;
-		System.out.println(member.getBirth());
+		
 		try {
+			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getName());
@@ -100,6 +99,7 @@ public class MemberDao {
 			pstmt.setString(4, member.getBirth());
 			pstmt.setString(5, member.getGender());
 			pstmt.setString(6, member.getJob());
+			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

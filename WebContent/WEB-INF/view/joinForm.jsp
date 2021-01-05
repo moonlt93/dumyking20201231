@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +18,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<u:navbar />
+	<u:navbar />
 	<div class="container">
 		<h1>회원가입</h1>
 		<form action="${root }/join.do" method="post">
@@ -60,30 +60,30 @@
 				</c:if>
 			</div>
 			<div class="form-group">
-				<label for="input5-birth">생일</label> <input type="date" name="birth"
+				<label for="input5-birth">생일</label> 
+				<input type="date" name="birth"
 					class="form-control" value="${param.birth }" />
 				<c:if test="${errors.birth }">생일이 입력되지 않았습니다.</c:if>
 			</div>
-			<p>
+		<!-- 	<p>
+				성별 <br />
 			<div class="form-check">
 				<input class="form-check-input1" type="checkbox" value="남자"
 					id="flexCheckDefault"> <label class="form-check-label"
-					for="flexCheckDefault"> 남자 </label>
-			</div>
-			<div class="form-check">
-				<input class="form-check-input2" type="checkbox" value="여자"
+					for="flexCheckDefault"> 남자 </label> <input
+					class="form-check-input2" type="checkbox" value="여자"
 					id="flexCheckDefault"> <label class="form-check-label"
 					for="flexCheckDefault"> 여자 </label>
 			</div>
-
-			<!-- 성별: <br /> <input type="radio" name="gender" value="남자" />남자 
-			             <input	type="radio" name="gender" value="여자" />여자
 			</p> -->
 
-			<div class="form-group">
-				<label for="input2-name">직업</label> <input type="text" name="name"
-					value="${param.job }" id="input2-name" class="form-control">
+			 성별: <br /> <input type="radio" name="gender" value="남자" />남자 
+			             <input	type="radio" name="gender" value="여자" />여자
+			
 
+			<div class="form-group">
+				<label for="input2-name">직업</label> <input type="text" name="job"
+					value="${param.job }" id="input2-name" class="form-control">
 				<c:if test="${errors.job }">
 					<small class="form-text text-muted"> 직업을 입력하세요. </small>
 				</c:if>

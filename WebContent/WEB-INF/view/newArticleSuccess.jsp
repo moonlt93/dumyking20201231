@@ -13,11 +13,10 @@
 </head>
 <body>
 <div class="container">
-  <h1>게시글을 등록했습니다.</h1>
-  <a href="${root }/article/list.do">[게시글목록보기]</a>
-  <a href="${root }/article/read.do?no=${newArticleNo}">[게시글내용보기]</a>
+  <%-- <a href="${root }/article/list.do">[게시글목록보기]</a>
+  <a href="${root }/article/read.do?no=${newArticleNo}">[게시글내용보기]</a> --%>
   <script>alert("글 게시에 성공했습니다");
-			location.href="${root}/index.jsp";
+			location.href="${root}/article/read.do?no=${newArticleNo}";
 		</script>
 	</div>
 </div>

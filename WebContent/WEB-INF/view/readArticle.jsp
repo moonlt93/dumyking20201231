@@ -22,10 +22,10 @@
 }
 </style>
 </head>
-<%-- <body>
-<u:navbar></u:navbar>
+ <body>
+<u:navbar/>
 
-<div class="container">
+ <div class="container">
   <div class="row">
     <div class="col-3"></div>
   	<div class="col-6">
@@ -52,12 +52,15 @@
           <a class="btn btn-danger" href="${root }/article/delete.do?no=${articleData.article.number }"><i class="fas fa-trash-alt"></i> 삭제</a>
         </div>
       </c:if>
+      <u:replyForm articleNo="${articleData.article.number }"/>
+    
+    <u:listReply /> 
     </div>
   </div>
-</div> --%>
+</div> 
 
-
-  <div class="container">
+<%-- 
+   <div class="container">
     <table border="1" width="100%">
       <tr>
         <td>번호</td>
@@ -90,7 +93,7 @@
     <u:replyForm articleNo="${articleData.article.number }"/>
     
     <u:listReply /> 
-  </div> 
+  </div>  --%>
 </body>
 </html>
 

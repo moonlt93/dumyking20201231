@@ -14,7 +14,7 @@ public class JoinService {
 	
 	public void join(JoinRequest joinReq) {
 		// .......
-		System.out.println(joinReq + "" + joinReq.getBirth());
+		
 		Connection con = null;
 		try {
 			con = ConnectionProvider.getConnection();//connection객체

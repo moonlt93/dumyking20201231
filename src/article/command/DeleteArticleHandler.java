@@ -41,10 +41,13 @@ public class DeleteArticleHandler implements CommandHandler {
 		// 삭제하려는 게시물의 작성자
 		HttpSession session = req.getSession();
 		User authUser = (User) session.getAttribute("authUser");
+		//세션객체에서 같은 이름으로 가져와서 저장.
 		int no = Integer.parseInt(req.getParameter("no"));
-		
+		// 정수 no는 request객체에 저장된 파라미터 no를 형변환 한  값.
 		if (authUser.getId().startsWith("extra")) {
+			//authUser에서 id를 가져오는데 extra로 시작하는 아이디를 가져온다.
 			deleteArticleService.delete(no, authUser);
+			//
 			
 		} else {
 			

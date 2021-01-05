@@ -48,9 +48,8 @@ public class LoginCheckFilter implements Filter {
 		} else {
 			//로그인 되어 있으면
 			chain.doFilter(request, response);
-			// 다음 흐름으로 전달.
 		}
-	
+		
 	}
 
 	/**
